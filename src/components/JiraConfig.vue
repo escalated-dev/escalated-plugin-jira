@@ -395,7 +395,6 @@ async function handleTestConnection() {
     connectionMessage.value = '';
 
     try {
-        // TODO: Implement Jira API call
         const result = jiraService
             ? await jiraService.testConnection({
                   jira_url: form.jira_url,

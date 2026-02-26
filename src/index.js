@@ -209,7 +209,6 @@ export default defineEscalatedPlugin({
                 options.body = JSON.stringify(options.body);
             }
 
-            // TODO: Implement Jira API call
             const response = await fetch(url, { ...options, headers });
 
             if (!response.ok) {

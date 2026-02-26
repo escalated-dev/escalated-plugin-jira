@@ -410,7 +410,6 @@ async function handleSearch() {
 
     isSearching.value = true;
     try {
-        // TODO: Implement Jira API call
         const results = await jiraService.searchIssues(q);
         searchResults.value = results;
     } catch (err) {
@@ -488,7 +487,6 @@ async function handleCreateIssue() {
     createError.value = '';
 
     try {
-        // TODO: Implement Jira API call
         await jiraService.createIssue(props.ticketId, {
             project: createForm.project,
             issue_type: createForm.issue_type,
