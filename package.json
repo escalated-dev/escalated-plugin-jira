@@ -1,11 +1,17 @@
 {
-    "name": "@escalated-dev/escalated-plugin-jira",
-    "version": "0.1.0",
-    "description": "Jira issue linking, sync status, and create Jira issues from tickets",
-    "main": "src/index.js",
-    "peerDependencies": {
-        "@escalated-dev/escalated": "^0.6.0",
-        "vue": "^3.4.0"
-    },
-    "keywords": ["escalated", "plugin", "jira", "issue-tracking", "integration", "atlassian"]
+  "name": "@escalated-dev/plugin-jira",
+  "version": "0.1.0",
+  "description": "Jira issue linking, status sync, and auto-create for Escalated tickets — TypeScript SDK version",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@escalated-dev/plugin-sdk": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
 }
