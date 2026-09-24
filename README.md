@@ -1,5 +1,7 @@
 # Escalated Plugin: Jira
 
+[![Views](https://hits.sh/github.com/escalated-dev/escalated-plugin-jira.svg?style=flat&label=views&color=007ec6)](https://hits.sh/github.com/escalated-dev/escalated-plugin-jira/)
+
 **Website:** [escalated.dev](https://escalated.dev)
 
 Links Escalated tickets to Jira issues, syncs status changes bidirectionally, and can auto-create Jira issues when new tickets arrive. Supports JQL search, direct issue-key linking, and configurable field mapping.
