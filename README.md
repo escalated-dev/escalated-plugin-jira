@@ -78,4 +78,4 @@ npm install @escalated-dev/plugin-jira
 
 ## License
 
-MIT
+MIT - Copyright (c) Escalated.dev. See [LICENSE](LICENSE).
