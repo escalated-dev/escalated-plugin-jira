@@ -1,81 +1,67 @@
-# Escalated Plugin: Jira
+<p align="center">
+  <a href="https://escalated.dev"><img src="https://raw.githubusercontent.com/escalated-dev/escalated/main/docs/assets/readme/logo.png" width="56" height="56" alt="Escalated"></a>
+</p>
 
-[![Views](https://hits.sh/github.com/escalated-dev/escalated-plugin-jira.svg?style=flat&label=views&color=007ec6)](https://hits.sh/github.com/escalated-dev/escalated-plugin-jira/)
+<h1 align="center">Jira plugin for Escalated</h1>
 
-**Website:** [escalated.dev](https://escalated.dev)
+<p align="center">Link support tickets to Jira issues and keep their status in sync.</p>
 
-Links Escalated tickets to Jira issues, syncs status changes bidirectionally, and can auto-create Jira issues when new tickets arrive. Supports JQL search, direct issue-key linking, and configurable field mapping.
+<p align="center">
+  <a href="https://escalated.dev"><b>Website</b></a> ·
+  <a href="https://escalated.dev/docs"><b>Docs</b></a> ·
+  <a href="https://escalated.dev/cloud"><b>Cloud</b></a> ·
+  <a href="https://github.com/escalated-dev/escalated-plugin-jira/releases"><b>Releases</b></a>
+</p>
+
+This plugin links Escalated tickets to Jira issues, can create an issue for every new ticket, and syncs status changes in one or both directions. It's for support teams that hand bugs and feature requests to engineers who work in Jira.
 
 ## Features
 
-- Auto-create a Jira issue when a new Escalated ticket is created
-- Sync ticket status changes to linked Jira issues
-- Receive Jira webhook events and sync status back to Escalated tickets
-- Link and unlink existing Jira issues to any ticket
-- JQL issue search and direct issue-key lookup
-- Configurable sync direction (Escalated to Jira, Jira to Escalated, or bidirectional)
-- Field mapping between Escalated and Jira fields
-- Ticket sidebar panel showing linked issues with live Jira data
-- Admin settings page with connection test
+<table>
+<tr>
+<td width="33%" valign="top">
 
-## Configuration
+**Issues**
+- Auto-create an issue for new tickets
+- Link and unlink existing issues
+- JQL search and issue-key lookup
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `jira_url` | url | Yes | Base URL of your Jira instance, e.g. `https://your-org.atlassian.net`. |
-| `api_email` | text | Yes | Email address associated with your Jira API token. |
-| `api_token` | password | Yes | Jira API token. Generate at id.atlassian.com. |
-| `default_project` | text | No | Jira project key used when creating issues, e.g. `PROJ`. |
-| `default_issue_type` | select | No | Default issue type: Bug, Task, Story, or Epic. Defaults to `Task`. |
-| `auto_create` | boolean | No | Automatically create a Jira issue for every new ticket. Defaults to `false`. |
-| `sync_direction` | select | No | `escalated_to_jira`, `jira_to_escalated`, or `bidirectional`. Defaults to `escalated_to_jira`. |
-| `field_mapping` | json | No | Array of `{ escalated_field, jira_field }` pairs for field synchronization. |
+</td>
+<td width="33%" valign="top">
 
-## Admin Pages
+**Sync**
+- Ticket status changes sync to Jira
+- Jira webhooks sync status back
+- One-way or two-way sync
+- Map Escalated fields to Jira fields
 
-- **settings** — Configure Jira credentials, project defaults, sync direction, and field mappings.
+</td>
+<td width="33%" valign="top">
 
-## Hooks
+**In Escalated**
+- Ticket sidebar with live Jira data
+- Settings page with connection test
 
-### Actions
-- `ticket.created` — If `auto_create` is enabled, creates a Jira issue and stores the link.
-- `ticket.status.changed` — Transitions linked Jira issues to the matching status when syncing to Jira.
-- `webhook.jira` — Processes incoming Jira webhook events and updates Escalated ticket status when syncing from Jira.
+</td>
+</tr>
+</table>
 
-### Filters
-- `ticket.actions` — Adds "Link to Jira" and "Create Jira Issue" actions to the ticket action menu.
+<p align="center"><sub><a href="docs/features.md">Every feature in detail</a></sub></p>
 
-## Endpoints
+<p align="center">
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"></a>
+  <a href="https://vuejs.org"><img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white" alt="Vue.js"></a>
+</p>
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/settings` | Get plugin configuration. |
-| PUT | `/settings` | Save plugin configuration. |
-| POST | `/test-connection` | Test Jira credentials. |
-| GET | `/links?ticket_id=` | Get Jira issues linked to a ticket, enriched with live Jira data. |
-| POST | `/links` | Link a Jira issue to a ticket. |
-| DELETE | `/links` | Unlink a Jira issue from a ticket. |
-| POST | `/issues` | Create a new Jira issue and link it to a ticket. |
-| GET | `/issues/search?q=` | Search Jira issues by text or issue key. |
-| GET | `/issues/:key` | Fetch a single Jira issue by key. |
+## Learn more
 
-## Webhooks
-
-| Method | Path | Description |
-|--------|------|-------------|
-| POST | `/webhook` | Receives Jira webhook events (issue updated, transitioned, etc.). |
-
-Configure this URL in Jira under Project Settings > Webhooks:
-```
-https://your-escalated-domain.com/webhooks/plugins/jira/webhook
-```
-
-## Installation
-
-```bash
-npm install @escalated-dev/plugin-jira
-```
+- [Every feature](docs/features.md)
+- [Configuration, hooks, endpoints and webhooks](docs/reference.md)
+- [Plugin SDK](https://github.com/escalated-dev/escalated-plugin-sdk): how Escalated plugins are built
+- [Escalated docs](https://escalated.dev/docs)
+- [Escalated](https://github.com/escalated-dev/escalated), the main repo
 
 ## License
 
-MIT - Copyright (c) Escalated.dev. See [LICENSE](LICENSE).
+MIT. Copyright (c) 2026 Escalated.dev. See [LICENSE](LICENSE).
